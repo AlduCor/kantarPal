@@ -1,20 +1,19 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
-
+This is a simple package that provides a color pallete in R, that is based on the Kantar Color scheme (as guessed from the Office themes).
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Clone and install the package as normal. 
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+You use it as following
+```
+library(ggplot2)
+library(kantarPal)
+ggplot(data = iris, 
+        aes(x=Sepal.Length,y=Sepal.Width, color = Species)) + 
+        geom_point() + 
+        kantaRpal::scale_color_kantar()
+```
+
 
 # Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+This was a first attempt and a quick hack. You are invited to help refine the 
+package by using Pull Requests.
