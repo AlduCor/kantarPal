@@ -3,27 +3,35 @@ library(ggplot2)
 theme_set(theme_minimal())
 
 #' Kantar Corporate Colors
-kantar_colors <- c(
-  `red`        =     "#f30020",
-  `orange`      =    "#f9370a",
-  `yellow`       =   "#fbd50b",
-  `green`     =      "#17b003",
-  `dark blue`  =     "#0544fd",
-  `purple` =         "#6c09a9",
-  `turquise`     =   "#1ee2ab",
-  `light grey` =     "#9f9d8d",
-  `dark grey` =      "#082724",
-  `neon green` =     "#34d900",
-  `brown` =          "#a22203",
-  `maroon` =         "#890108",
-  `muted blue` =     "#0d729d",
-  `peach` =          "#eb893e",
-  `salmon` =         "#e96b71",
-  `light purple` =   "#9b75fe",
-  `purple red` =     "#c70097",
-  `light blue` =     "#87b7f0",
-  `text grey` =      "#676766"
-)
+kt_colours <- c('Royal Blue' = "#0060FF",
+                'Blue' = "#00B6FF",
+                'Teal' = "#00E5BA",
+                'Lime' = "#9EE900",
+                'Green' = "#00B600",
+                'Purple' = "#802AB7",
+                'Violet' = "#C700D3",
+                'Pink' = "#EB0064",
+                'Orange' = "#FF5000",
+                'Yellow' = "#FEDB00",
+                'Dark Royal Blue' = "#191973",
+                'Dark Blue' = "#005b81",
+                'Dark Teal' = "#003a45",
+                'Dark Lime' = "#416b18",
+                'Dark Green' = "#00411e",
+                'Dark Purple' = "#451356",
+                'Dark Violet' = "#751159",
+                'Dark Pink' = "#9b0028",
+                'Dark Orange' = "#934900",
+                'Dark Yellow' = "#867d00",
+                'Warm grey 1' = "#858574",
+                'Warm grey 2' = "#AEAE9F",
+                'Warm grey 3' = "#D4D4C9",
+                'Warm grey 4' = "#F2F1EF",
+                'Significant red 1' = "#E10000",
+                'Significant red 2' = "#ED6666",
+                'Significant green 1' = "#00D200",
+                'Significant green 2' = "#66E466")
+
 
 #' Function to extract kantar colors as hex codes
 #'
@@ -38,53 +46,21 @@ kantar_cols <- function(...) {
   kantar_colors[cols]
 }
 #' Create Kantar Pallets
-kantar_palettes <- list(
-  `main`  = kantar_cols("red", "dark blue", "turquise"),
-
-  `light`  = kantar_cols("yellow", "light grey", "turquise"),
-
-  `dark`   = kantar_cols("red", "dark grey", "purple", "dark blue", "green"),
-
-  `mixed` = kantar_cols(
-    "red",
-    "orange",
-    "yellow",
-    "green" ,
-    "turquise",
-    "light grey",
-    "dark blue",
-    "purple",
-    "dark grey"
-  ),
-
-  `expanded` = kantar_cols(
-    "red",
-    "orange",
-    "yellow",
-    "green" ,
-    "turquise",
-    "light grey",
-    "dark blue",
-    "purple",
-    "dark grey",
-    "neon green",
-    "brown",
-    "maroon",
-    "muted blue",
-    "peach",
-    "salmon",
-    "light purple",
-    "purple red",
-    "light blue"
-  ),
-
-  `grey`  = kantar_cols("light grey", "dark grey"),
-
-  `scale1` = kantar_cols("red", "maroon", "dark grey"),
-
-  `scale2` = kantar_cols("red", "light blue"),
-
-  `scale3` = kantar_cols("red", "orange", "yellow", "white")
+kt_palettes <- list(
+  `KT_Primary` = c("#858574", "#AEAE9F", "#D4D4C9", "#F2F1EF"),
+  `KT_Secondary_bright` = c("#0060FF", "#00B6FF", "#00E5BA", "#9EE900","#00B600",
+                            "#802AB7", "#C700D3", "#EB0064", "#FF5000", "#FEDB00"),
+  `KT_Secondary_dark` = c("#191973", "#005b81", "#003a45", "#416b18", "#00411e",
+                          "#451356", "#751159", "#9b0028", "#934900", "#867d00"),
+  `KT_Significant` = c("#E10000", "#ED6666", "#00D200", "#66E466"),
+  `KT_Light_Blue` = c("#0060ff", "#2674ff", "#4387ff", "#5d99ff", "#78abff"),
+  `KT_Light_Green` = c("#009000", "#00ab00", "#00c600", "#01e201", "#01ff01"),
+  `KT_Light_Violet` = c("#c700d3", "#d32ede", "#df47e9", "#eb5bf4", "#f76eff"),
+  `KT_Teal` = c("#003a45", "#00616c", "#008b8d", "#00b8a8", "#00e5ba"),
+  `KT_Light_Teal` = c("#007d66", "#009c7f", "#00bc99", "#00ddb4", "#00ffcf"),
+  `KT_Blue_Teal` = c("#00b6ff", "#00c5fc", "#00d2ee", "#00ddd7", "#00e5ba"),
+  `KT_Light_Purple` = c("#802ab7", "#9b57c8", "#b47ed8", "#cda6e7", "#e6cdf6"),
+  `KT_grey`  = kantar_cols("Warm grey 1", "Warm grey 2","Warm grey 3","Warm grey 4"),
 )
 #' Return function to interpolate a kantar color palette
 #'
@@ -142,7 +118,7 @@ scale_color_kantar <-
 #'
 #' @export
 scale_fill_kantar <-
-  function(palette = "main",
+  function(palette = "KT_Primary",
            discrete = TRUE,
            reverse = FALSE,
            expand_by = 0,
