@@ -10,7 +10,7 @@ library(kantarPal)
 ggplot(data = iris, 
         aes(x=Sepal.Length,y=Sepal.Width, color = Species)) + 
         geom_point() + 
-        kantaRpal::scale_color_kantar()
+        kantarPal::scale_color_kantar()
 ```
 
 
